@@ -1,0 +1,342 @@
+/* body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container, .dashboard {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  color: white;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.Username::placeholder{
+  color: white;
+}
+
+input {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #00ff00;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.three-canvas {
+  margin: 20px auto;
+  display: block;
+}
+
+.prediction {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(0, 255, 0, 0.2);
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+} */
+
+/* *********************************-----------------------------------******************************** */
+/* Global Styles */
+/* body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Auth Container & Dashboard - Glassmorphism Effect */
+/* .auth-container, 
+.dashboard {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.5);
+  backdrop-filter: blur(12px);
+  color: white;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.auth-container:hover, 
+.dashboard:hover {
+  transform: scale(1.02);
+}
+
+/* Input Fields */
+/* input {
+  display: block;
+  margin: 20px auto;
+  padding: 12px;
+  width: 220px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+} */
+
+/* Placeholder Styling */
+/* .Username::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+} */
+
+/* Buttons */
+/* button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #00ff00;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 255, 0, 0.4);
+}
+
+button:hover {
+  background: #00cc00;
+  box-shadow: 0 6px 15px rgba(0, 255, 0, 0.6);
+  transform: scale(1.05);
+}
+
+/* Three.js Canvas */
+/* .three-canvas {
+  margin: 20px auto;
+  display: block;
+} */
+
+/* Prediction Box */
+/* .prediction {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(0, 255, 0, 0.2);
+  border-radius: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: background 0.3s ease-in-out;
+}
+
+.prediction:hover {
+  background: rgba(0, 255, 0, 0.3);
+} */
+
+/* Headings */
+/* h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+} */
+
+/* Responsive Design */
+/* @media (max-width: 768px) {
+  .auth-container, .dashboard {
+    padding: 30px;
+    max-width: 90%;
+  }
+
+  input {
+    width: 180px;
+  }
+
+  button {
+    padding: 10px 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+}  */
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0F172A, #1E293B);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #E2E8F0;
+}
+
+/* Auth Container & Dashboard - Professional Glassmorphism */
+.auth-container, 
+.dashboard {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  transition: transform 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.auth-container:hover, 
+.dashboard:hover {
+  transform: scale(1.02);
+}
+
+/* Input Fields */
+input {
+  display: block;
+  margin: 20px auto;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #E2E8F0;
+  font-size: 16px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #FACC15;
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+}
+
+/* Placeholder Styling */
+.Username::placeholder {
+  color: rgba(226, 232, 240, 0.7);
+  font-style: normal;
+}
+
+/* Buttons */
+button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #FACC15, #EAB308);
+  color: #1E293B;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 14px rgba(250, 204, 21, 0.4);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #EAB308, #D97706);
+  box-shadow: 0 6px 18px rgba(250, 204, 21, 0.6);
+  transform: scale(1.04);
+}
+
+/* Three.js Canvas */
+.three-canvas {
+  margin: 20px auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* Prediction Box */
+.prediction {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(234, 179, 8, 0.2);
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid rgba(250, 204, 21, 0.3);
+}
+
+.prediction:hover {
+  background: rgba(234, 179, 8, 0.3);
+}
+
+/* Headings */
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #FACC15;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-container, .dashboard {
+    padding: 30px;
+    max-width: 90%;
+  }
+
+  input {
+    width: 220px;
+  }
+
+  button {
+    padding: 10px 24px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+}
+
+.class{
+  font-size: xx-large;
+  color: #FACC15;
+  font-style: italic;
+}
+
+.signup {
+  color: #FACC15; 
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.signup:hover {
+  color: #FACC15; 
+  text-decoration: underline; 
+}
