@@ -1,7 +1,0 @@
-flask
-flask-jwt-extended
-werkzeug
-numpy
-opencv-python
-pillow
-tensorflow  # or your model's framework
