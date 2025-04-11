@@ -627,7 +627,7 @@ CORS(app)
 csrf = CSRFProtect(app)
 
 # MongoDB setup
-MONGO_URI = 'mongodb+srv://devansh2106:Devansh2106@traffic_sign_users.hywk5v3.mongodb.net/'
+MONGO_URI = 'mongodb+srv://devansh2106:<Devansh2106>@road-sign-recognition.hywk5v3.mongodb.net/traffic_sign_users?retryWrites=true&w=majority&ssl=true&tlsAllowInvalidCertificates=true'
 client = MongoClient(MONGO_URI)
 db = client['traffic_sign_users']
 users_collection = db['users']
