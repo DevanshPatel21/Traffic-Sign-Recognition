@@ -6,3 +6,6 @@ opencv-python
 pillow
 tensorflow  # or your model's framework
 gunicorn
+flask_wtf
+flask_cors
+pymongo
