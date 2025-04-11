@@ -91,7 +91,7 @@ function Signup() {
     if (!validateInputs()) return;
     
     try {
-      const response = await axios.post('http://localhost:5000/signup', { username, password });
+      const response = await axios.post('http://44.226.145.213/signup', { username, password });
       toast.success(response.data.message || "Signup successful");
       navigate('/');
     } catch (error) {
