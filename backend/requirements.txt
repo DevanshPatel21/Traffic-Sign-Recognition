@@ -5,3 +5,4 @@ numpy
 opencv-python
 pillow
 tensorflow  # or your model's framework
+gunicorn
