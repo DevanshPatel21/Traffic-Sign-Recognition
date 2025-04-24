@@ -58,13 +58,13 @@
 // }
 
 // export default Signup;
-
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 function Signup() {
   const [username, setUsername] = useState('');
@@ -72,8 +72,8 @@ function Signup() {
   const navigate = useNavigate();
 
   const validateInputs = () => {
-    if (username.trim().length < 3) {
-      toast.error("Username must be at least 3 characters long");
+    if (username.trim().length < 3 || !username.includes('@')) {
+      toast.error("Enter a valid email address");
       return false;
     }
     if (password.length < 6) {
@@ -89,13 +89,19 @@ function Signup() {
 
   const handleSignup = async () => {
     if (!validateInputs()) return;
-    
+
     try {
+<<<<<<< HEAD
       const response = await axios.post('http://44.226.145.213/signup', { username, password });
       toast.success(response.data.message || "Signup successful");
       navigate('/');
+=======
+      await createUserWithEmailAndPassword(auth, username, password);
+      toast.success("Signup successful 🎉");
+      navigate('/dashboard');
+>>>>>>> f47eb9a9 (Final Commit by CB)
     } catch (error) {
-      toast.error(error.response?.data?.message || "Signup failed");
+      toast.error(error.message || "Signup failed");
     }
   };
 
@@ -109,8 +115,8 @@ function Signup() {
       <h1>Signup</h1>
       <input
         className='Username'
-        type="text"
-        placeholder="Username"
+        type="email"
+        placeholder="Email"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
