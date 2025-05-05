@@ -1,0 +1,38 @@
+version: '3'
+services:
+  backend:
+    image: bhaveshpchavda/traffic-sign-backend:latest
+    build:
+      context: ./backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - type: bind
+        source: ./backend
+        target: /app
+    networks:
+      - app-network
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=production
+
+  frontend:
+    image: bhaveshpchavda/traffic-sign-frontend:latest
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - type: bind
+        source: ./frontend
+        target: /app
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+networks:
+  app-network:
+    driver: bridge

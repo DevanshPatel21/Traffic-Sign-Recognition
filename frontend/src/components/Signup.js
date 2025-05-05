@@ -91,15 +91,9 @@ function Signup() {
     if (!validateInputs()) return;
 
     try {
-<<<<<<< HEAD
-      const response = await axios.post('http://44.226.145.213/signup', { username, password });
-      toast.success(response.data.message || "Signup successful");
-      navigate('/');
-=======
       await createUserWithEmailAndPassword(auth, username, password);
       toast.success("Signup successful 🎉");
       navigate('/dashboard');
->>>>>>> f47eb9a9 (Final Commit by CB)
     } catch (error) {
       toast.error(error.message || "Signup failed");
     }

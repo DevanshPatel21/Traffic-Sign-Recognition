@@ -206,6 +206,10 @@ def predict():
         logger.error(f"Prediction processing error: {str(e)}")
         return jsonify({"error": f"Prediction error: {str(e)}"}), 500
 
+@app.route('/health')
+def health_check():
+    return jsonify({"status": "healthy"}), 200
+
 # Update the main execution
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

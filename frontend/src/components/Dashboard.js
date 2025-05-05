@@ -110,7 +110,7 @@ function Dashboard({ token, setToken }) {
                 probability: response.data.probability
             });
             // Remove or comment out this line to stop auto-scrolling
-            // predictionRef.current?.scrollIntoView({ behavior: "smooth" });
+            //  predictionRef.current?.scrollIntoView({ behavior: "smooth" });
         } else {
             toast.warning("Received invalid prediction data ⚠️");
             console.error("Invalid prediction response:", response.data);
