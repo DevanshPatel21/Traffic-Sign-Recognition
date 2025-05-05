@@ -2,15 +2,9 @@ version: '3'
 services:
   backend:
     image: bhaveshpchavda/traffic-sign-backend:latest
-    build:
-      context: ./backend
     container_name: backend
     ports:
       - "5000:5000"
-    volumes:
-      - type: bind
-        source: ./backend
-        target: /app
     networks:
       - app-network
     environment:
@@ -19,15 +13,9 @@ services:
 
   frontend:
     image: bhaveshpchavda/traffic-sign-frontend:latest
-    build:
-      context: ./frontend
     container_name: frontend
     ports:
-      - "3000:3000"
-    volumes:
-      - type: bind
-        source: ./frontend
-        target: /app
+      - "80:80"  # Map NGINX container port 80 to host port 80
     networks:
       - app-network
     depends_on:

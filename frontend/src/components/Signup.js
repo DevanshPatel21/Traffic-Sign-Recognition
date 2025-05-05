@@ -1,63 +1,3 @@
-// import React, { useState } from 'react';
-// import { useNavigate, Link } from 'react-router-dom';
-// import axios from 'axios';
-// import { motion } from 'framer-motion';
-// import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-
-// function Signup() {
-//   const [username, setUsername] = useState('');
-//   const [password, setPassword] = useState('');
-//   const navigate = useNavigate();
-
-//   const handleSignup = async () => {
-//     try {
-//       const response = await axios.post('http://localhost:5000/signup', { username, password });
-//       alert(response.data.message);
-//       navigate('/');
-//     } catch (error) {
-//     //   alert(error.response?.data?.message || 'Signup failed');
-//         toast.error("Failed to SignUp")
-//     }
-//   };
-
-//   return (
-//     <motion.div
-//       initial={{ opacity: 0, y: -50 }}
-//       animate={{ opacity: 1, y: 0 }}
-//       transition={{ duration: 0.5 }}
-//       className="auth-container"
-//     >
-//       <h1>Signup</h1>
-//       <input
-//         className='Username'
-//         type="text"
-//         placeholder="Username"
-//         value={username}
-//         onChange={(e) => setUsername(e.target.value)}
-//       />
-//       <input
-//         className='Username'
-//         type="password"
-//         placeholder="Password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//       />
-//       <motion.button
-//         whileHover={{ scale: 1.1 }}
-//         whileTap={{ scale: 0.95 }}
-//         onClick={handleSignup}
-//       >
-//         Signup
-//       </motion.button>
-//       <p>
-//         Already have an account? <Link to="/">Login</Link>
-//       </p>
-//     </motion.div>
-//   );
-// }
-
-// export default Signup;
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -69,6 +9,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 function Signup() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const validateInputs = () => {
@@ -90,12 +31,15 @@ function Signup() {
   const handleSignup = async () => {
     if (!validateInputs()) return;
 
+    setLoading(true);
     try {
       await createUserWithEmailAndPassword(auth, username, password);
       toast.success("Signup successful 🎉");
       navigate('/dashboard');
     } catch (error) {
       toast.error(error.message || "Signup failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -125,9 +69,9 @@ function Signup() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={handleSignup}
-        disabled={!username || !password}
+        disabled={!username || !password || loading}
       >
-        Signup
+        {loading ? 'Signing up...' : 'Signup'}
       </motion.button>
       <p>
         Already have an account? <Link to="/" className='signup'>Login</Link>

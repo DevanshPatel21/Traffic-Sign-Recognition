@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies with additional flags
-RUN npm install --no-proxy --legacy-peer-deps --production=false
+# Install dependencies
+RUN npm install
 
 # Copy the rest of the application
 COPY . .
@@ -16,17 +16,16 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM node:16-slim
+FROM nginx:alpine
 
-WORKDIR /app
+# Copy the build output to replace the default nginx contents.
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Copy built assets from builder
-COPY --from=build /app/build ./build
-COPY --from=build /app/package*.json ./
+# Expose port 80 for NGINX
+EXPOSE 80
 
-# Install only production dependencies
-RUN npm install --production
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 3000
-
-CMD ["npm", "start"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]

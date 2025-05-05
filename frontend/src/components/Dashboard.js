@@ -90,7 +90,7 @@ function Dashboard({ token, setToken }) {
         // Send the raw grayscale pixel data
         console.log("Sending prediction request...");
         const response = await axios.post(
-            `${API_URL}/predict`,
+            `/predict`,
             { 
                 imageData: Array.from(grayscalePixels),
                 width: 32,
